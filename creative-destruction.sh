@@ -46,15 +46,4 @@ rm -f ~/.bashrc
 rm -f ~/.profile
 
 echo "🧼 Developer environment cleanup complete!"
-"""
-
-# Save to a file
-script_path = "/mnt/data/clean-dev-env.sh"
-with open(script_path, "w") as file:
-    file.write(script_content)
-
-# Make it executable
-import os
-os.chmod(script_path, 0o755)
-
-script_path
+ 
