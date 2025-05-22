@@ -1,38 +1,42 @@
 #!/bin/bash
-
-#!/bin/bash
+set -e
 trap 'echo "💥 Script failed at line $LINENO. Aborting." && exit 1' ERR
+
+# === ONE-TIME MANUAL STEPS (DO BEFORE RUNNING THIS SCRIPT) ===
+# You must install these once manually:
+# 1. Xcode CLI Tools:     xcode-select --install
+# 2. Homebrew:            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# After that, run this script.
+
+# === ADMIN ACCESS ===
+sudo -v || { echo "❌ Admin access required. Aborting."; exit 1; }
+
+# === CHECK USER IS ADMIN ===
+if ! groups "$USER" | grep -qE '\badmin\b'; then
+  echo "⛔ User '$USER' is not an admin. This setup requires sudo privileges."
+  echo "🔐 Try running as an admin user or contact your system administrator."
+  exit 1
+fi
+
 echo "🌱 Rebuilding Ukubona Dev Environment..."
 
-# === XCODE CLI TOOLS ===
-echo "🔧 Installing Xcode CLI Tools..."
-xcode-select --install 2>/dev/null || echo "✔️ Xcode CLI Tools already installed"
+# === VERIFY XCODE CLI TOOLS ===
+echo "🔧 Verifying Xcode CLI Tools..."
+xcode-select -p &>/dev/null && echo "✔️ Xcode CLI Tools installed" || {
+  echo "❌ Xcode CLI Tools not detected. Install manually: xcode-select --install"
+  exit 1
+}
 
-# === INSTALL HOMEBREW ===
+# === VERIFY HOMEBREW ===
 echo "🍺 Checking Homebrew..."
 if ! command -v brew &> /dev/null; then
-  echo "📦 Installing Homebrew..."
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  # Post-install: Determine correct path
-  if [[ -d "/opt/homebrew" ]]; then
-    BREW_PREFIX="/opt/homebrew"
-  elif [[ -d "/usr/local/Homebrew" ]]; then
-    BREW_PREFIX="/usr/local"
-  else
-    echo "❌ Homebrew install failed or not found in expected paths."
-    echo "   ➤ Try running the installer manually:"
-    echo "     /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
-    exit 1
-  fi
-
-  echo 'eval "$('"$BREW_PREFIX"'/bin/brew shellenv)"' >> "$HOME/.zprofile"
-  eval "$("$BREW_PREFIX"/bin/brew shellenv)"
+  echo "❌ Homebrew not found. Please install manually:"
+  echo "    /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+  exit 1
 else
   echo "✔️ Homebrew already installed"
   eval "$($(command -v brew) shellenv)"
 fi
-
 
 # === INSTALL CORE TOOLS ===
 echo "🔨 Installing Git, pyenv, Node, VSCode, and dependencies..."
