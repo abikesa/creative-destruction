@@ -8,3 +8,4 @@
    - branch: i-ukb-0-001
 5. [retired](https://ukubona-llc.github.io/vscode/)
 6. pull request
+7. [destructive.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/destructive.sh)
