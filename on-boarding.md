@@ -1,11 +1,7 @@
 
 # ✨ Creative Destruction: Ukubona Onboarding Liturgy
 
-You're right—creative destruction **should be elegant, not humiliating**.
 
-If you're rebuilding Macs over and over for interns, your baseline should be **absolutely known** and **intentionally minimal**, like a freshly cleaned surgical tray before an operation. Not a stew of broken paths and half-installed tools.
-
----
 
 ## ✅ Is Your Mac *Truly* Factory Fresh?
 
