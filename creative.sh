@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#!/bin/bash
+trap 'echo "💥 Script failed at line $LINENO. Aborting." && exit 1' ERR
 echo "🌱 Rebuilding Ukubona Dev Environment..."
 
 # === XCODE CLI TOOLS ===
@@ -12,11 +14,16 @@ if ! command -v brew &> /dev/null; then
   echo "📦 Installing Homebrew..."
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  # Determine correct Homebrew path
-  if [[ $(uname -m) == "arm64" ]]; then
+  # Post-install: Determine correct path
+  if [[ -d "/opt/homebrew" ]]; then
     BREW_PREFIX="/opt/homebrew"
-  else
+  elif [[ -d "/usr/local/Homebrew" ]]; then
     BREW_PREFIX="/usr/local"
+  else
+    echo "❌ Homebrew install failed or not found in expected paths."
+    echo "   ➤ Try running the installer manually:"
+    echo "     /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    exit 1
   fi
 
   echo 'eval "$('"$BREW_PREFIX"'/bin/brew shellenv)"' >> "$HOME/.zprofile"
@@ -25,6 +32,7 @@ else
   echo "✔️ Homebrew already installed"
   eval "$($(command -v brew) shellenv)"
 fi
+
 
 # === INSTALL CORE TOOLS ===
 echo "🔨 Installing Git, pyenv, Node, VSCode, and dependencies..."
