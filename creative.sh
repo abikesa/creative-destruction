@@ -7,14 +7,23 @@ echo "🔧 Installing Xcode CLI Tools..."
 xcode-select --install 2>/dev/null || echo "✔️ Xcode CLI Tools already installed"
 
 # === INSTALL HOMEBREW ===
+echo "🍺 Checking Homebrew..."
 if ! command -v brew &> /dev/null; then
-  echo "🍺 Installing Homebrew..."
+  echo "📦 Installing Homebrew..."
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # Determine correct Homebrew path
+  if [[ $(uname -m) == "arm64" ]]; then
+    BREW_PREFIX="/opt/homebrew"
+  else
+    BREW_PREFIX="/usr/local"
+  fi
+
+  echo 'eval "$('"$BREW_PREFIX"'/bin/brew shellenv)"' >> "$HOME/.zprofile"
+  eval "$("$BREW_PREFIX"/bin/brew shellenv)"
 else
   echo "✔️ Homebrew already installed"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$($(command -v brew) shellenv)"
 fi
 
 # === INSTALL CORE TOOLS ===
@@ -41,7 +50,7 @@ pyenv global $PYTHON_VERSION
 # === PERSIST TO SHELL STARTUP FILES ===
 echo "📜 Updating shell profile for future sessions..."
 {
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+  echo 'eval "$('$(command -v brew)' shellenv)"'
   echo 'export PYENV_ROOT="$HOME/.pyenv"'
   echo 'export PATH="$PYENV_ROOT/bin:$PATH"'
   echo 'eval "$(pyenv init --path)"'
@@ -57,7 +66,7 @@ echo "🧪 Verifying tools..."
 echo -n "Git: "; git --version
 echo -n "Python: "; python --version
 echo -n "Node: "; node --version
-echo -n "VSCode: "; code --version
+echo -n "VSCode: "; code --version || echo "⚠️ VSCode not found in PATH yet"
 
 # === CREATE CLEAN WORKSPACE ===
 mkdir -p "$HOME/code"
