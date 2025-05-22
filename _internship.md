@@ -1,3 +1,4 @@
+0. `cat creative.sh` & manually run first two lines :)
 1. [creative.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh)
 2. [setup-vscode.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh)
 3. `nano ~/.gitconfig`
