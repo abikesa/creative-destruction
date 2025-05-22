@@ -32,16 +32,17 @@ done
 echo "⚠️ WARNING: This will remove Homebrew and all installed formulas."
 read -p "Proceed with Homebrew uninstall? (y/n): " CONFIRM
 if [[ "$CONFIRM" == "y" ]]; then
+  echo "🧹 Uninstalling Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 else
   echo "⏭️ Skipping Homebrew uninstall"
 fi
 
-echo "⚠️ Removing ~/.gitconfig, ~/.npmrc, ~/.zshrc if they exist..."
+echo "🗑️ Removing ~/.gitconfig, ~/.npmrc, ~/.zshrc if they exist..."
 rm -f ~/.gitconfig ~/.npmrc ~/.zshrc
 
 # === Step 5: Kill VSCode (optional) ===
-echo "⚠️ Removing VSCode..."
+echo "🗑️ Removing VSCode..."
 rm -rf /Applications/Visual\ Studio\ Code.app
 rm -rf ~/Library/Application\ Support/Code
 rm -rf ~/.vscode
