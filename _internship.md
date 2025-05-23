@@ -8,6 +8,7 @@
    - `xcode-select -p` to confirm installation
       - `/Library/Developer/CommandLineTools` confirms installation
    - now copy & paste `homebrew` line
+      - `which homebrew` 
       - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 2. [creative.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh)
 3. [setup-vscode.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh)
