@@ -1,3 +1,4 @@
+## A. Work from Mac Terminal
 1. `cat creative.sh`
    - manually preview file
    - copy and paste `xcode` line
@@ -14,6 +15,9 @@
 2. now lets run [creative.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh)
    - `curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh | bash`
    - `brew install --cask visual-studio-code` (redundancy for now)
+
+## B. Work from VS Code
+3. visual studio code installed
    - `echo 'export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"' >> ~/.zprofile`
    - `source ~/.zprofile`
    - `code --version`
