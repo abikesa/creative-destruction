@@ -1,6 +1,9 @@
 0. `cat creative.sh`
-   - manually run first two lines
-   - then ...
+   - manually preview file
+   - copy and paste `xcode` line
+   - lookout for a pop-up window
+   - click install
+   - this will take 5-15 minutes
 2. [creative.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh)
 3. [setup-vscode.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh)
 4. `nano ~/.gitconfig`
