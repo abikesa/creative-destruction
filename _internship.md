@@ -39,6 +39,9 @@
    - clone
    - edit
    - push
+      - if prompted for password?
+      - use your mac password
+      - **NOT** github 
    - branch: i-ukb-0-001
 6. [retired](https://ukubona-llc.github.io/vscode/)
 7. pull request
