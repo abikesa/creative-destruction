@@ -25,8 +25,13 @@
    - `curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh | bash`
 4. `nano ~/.gitconfig`
    - manually edit
-      - `git config --global user.name "Your Full Name"`
-      - `git config --global user.email "your@email.com"`
+
+    ```
+    [user]
+       name = Your Full Name
+       email = your@email.com
+    ```
+      
 5. ukubona-classic
    - clone
    - edit
