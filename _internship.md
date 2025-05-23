@@ -4,6 +4,7 @@
    - lookout for a pop-up window
    - click install
    - this will take 5-15 minutes
+   - `xcode-select -p` to confirm installation
 2. [creative.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh)
 3. [setup-vscode.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh)
 4. `nano ~/.gitconfig`
