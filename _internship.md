@@ -31,7 +31,10 @@
        name = Your Full Name
        email = your@email.com
     ```
-      
+
+   - `git config --global --list`
+   - `cat ~/.gitconfig`
+
 5. ukubona-classic
    - clone
    - edit
