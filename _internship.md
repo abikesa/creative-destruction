@@ -10,8 +10,7 @@
    - now copy & paste `homebrew` line
       - `which homebrew` 
       - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-      - do **NOT** follow the nextsteps that a successful homebrew suggests
-         - we already include this in `creative.sh` 
+      - follow additional instructions to activate homebrew
 2. now lets run [creative.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh)
    - `curl -fsSL https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/creative.sh | bash`
 4. then [setup-vscode.sh](https://raw.githubusercontent.com/abikesa/creative-destruction/refs/heads/main/setup-vscode.sh)
