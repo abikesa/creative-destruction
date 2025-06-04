@@ -37,8 +37,8 @@ code --install-extension zhuangtongfa.material-theme
 
 # === Create a starter project structure ===
 echo "📁 Creating project folder..."
-mkdir -p ~/ukubona_project/{data,analysis,.vscode}
-cd ~/ukubona_project
+mkdir -p ~/Documents/Local/{data,analysis,.vscode}
+cd ~/Documents/Local
 touch index.html style.css script.js README.md 
 touch data/mockdata.csv analysis/analysis.do analysis/script.R
 
@@ -77,4 +77,4 @@ EOF
 
 echo "✅ VSCode setup complete with enhanced data analysis capabilities!"
 echo "   Open the project folder with:"
-echo "   code ~/ukubona_project"
+echo "   code ~/Documents/Local"
